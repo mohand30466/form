@@ -1,0 +1,16 @@
+.datacontainer{
+    display: flex;
+    justify-content: space-around;
+    background-color:rgb(197, 197, 230) ;
+    flex-wrap:wrap ;
+}
+.card{
+    width: 20rem;
+    height: 7rem;
+    color: white;
+    border: 2px solid white;
+    background-color: blue;
+}
+.info{
+    margin-top: 2%;
+}

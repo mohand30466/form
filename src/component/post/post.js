@@ -5,6 +5,7 @@ import Create from "../create/create";
 
 class Post extends React.Component {
   state = {
+    
     data: [],
     value: "",
     valuet: "",
@@ -27,7 +28,13 @@ class Post extends React.Component {
   create = async (e) => {
     e.preventDefault();
 
-    if (this.state.value.length < 2 &this.state.valuet.length >9 &this.state.valuea.length > 3) {}
+    if (this.state.value.length < 2) {
+      return alert("please enter correct name")
+
+    }
+    if(this.state.valuet.length < 9 ){
+      return alert("please enter the correst phone Number")
+    }
       try {
         this.setState({ isDisabled: true, isLoading: true });
         const newItem = {
@@ -37,6 +44,8 @@ class Post extends React.Component {
           address: this.state.valuea,
         };
         const { data } = await API.post("/users", newItem);
+        alert(`Thank you ${this.state.value} see you soon`)
+
         return this.setState({
           data: [...this.state.data, data],
           value: "",
@@ -46,6 +55,8 @@ class Post extends React.Component {
           isDisabled: false,
           isLoading: false,
         });
+
+        
       } catch (err) {}
     
   };

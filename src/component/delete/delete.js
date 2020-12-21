@@ -1,5 +1,6 @@
 import API from "../api/api";
 import React from "react";
+import './delete.css'
 
 class Deleteitems extends React.Component {
   state = { data: [] };
@@ -23,22 +24,16 @@ class Deleteitems extends React.Component {
   render() {
     return (
       <div>
-        <h1>Wellcome to employe data page</h1>
+        <h1>Wellcome to employe data page: i have {this.state.data.length} student</h1>
 
         <div className="datacontainer">
           {this.state.data.map((db) => {
             return (
               <div key={db.id} className="card">
-                <div className="infoName">{db.name}</div>
-                <div className="info">
-                  <span>PHONE:</span>
-                  {db.phone}
-                </div>
+                <div className="info">{db.name}</div>
+                <div className="info"> {db.phone} </div>
 
-                <div className="info">
-                  <span>ADDRESS:</span>
-                  {db.address}
-                </div>
+                <div className="info"> {db.address}</div>
 
                 <div className="dlt">
                   <button onClick={() => this.Del(db.id)}>DELETE</button>
